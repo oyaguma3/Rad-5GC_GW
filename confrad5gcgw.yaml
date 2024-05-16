@@ -22,7 +22,7 @@ compress: false
 # また、現バージョンでは1つしか設定できず、ダブルクォーテーションで囲って文字列として表記してください。
 # AttributesLoggingは、一部RadiusメッセージのAttribute(byte列)をログ出力するかどうか(true/false)の設定です。
 # 各Attributeはbyte表記でそのままログ出力されるため、デバッグ以外ではfalseとしておくことを推奨します。
-sharedSecret: "iij44003iij"
+sharedSecret: "rad5gcgwtest"
 allowedClientAddress: "192.168.8.1"
 attributesLogging: false
 # ----------------------------------------
