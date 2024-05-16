@@ -1,0 +1,39 @@
+# ----------------------------------------
+# ■このファイルについて
+# Rad-5GC GWの各種設定を記載したもので、起動時に読み込まれます。
+# ファイル名は confrad5gcgw.yaml から変更しないようお願いします。
+# ----------------------------------------
+# ログ出力の設定です。ログファイルは実行ファイルと同じ場所に生成されます。
+# Filenameは文字列をダブルクォーテーションで囲って表記してください。
+# MaxSizeはログファイル１つの最大サイズで、単位はMBです。
+# MaxBackupsは過去ログの保管数で、切り出されてからMaxAge（日数）経過すると削除されます。
+# LocalTimeはタイムスタンプにローカル時間を使うかどうか(true/false)の設定です。
+# Compressは過去ログをgzipで圧縮するかどうか(true/false)の設定です。
+filename: "mainsystem.log"
+maxSize: 200
+maxBackups: 2
+maxAge: 365
+localTime: true
+compress: false
+# ----------------------------------------
+# Radiusサーバとしての設定です。
+# SharedSecretは文字列をダブルクォーテーションで囲って表記してください。
+# AllowedClientAddressは、Radiusメッセージを許容するIPアドレスを設定します。ポート番号は設定できません。
+# また、現バージョンでは1つしか設定できず、ダブルクォーテーションで囲って文字列として表記してください。
+# AttributesLoggingは、一部RadiusメッセージのAttribute(byte列)をログ出力するかどうか(true/false)の設定です。
+# 各Attributeはbyte表記でそのままログ出力されるため、デバッグ以外ではfalseとしておくことを推奨します。
+sharedSecret: "iij44003iij"
+allowedClientAddress: "192.168.8.1"
+attributesLogging: false
+# ----------------------------------------
+# ausfAddressでは、接続する5GCのAUSFアドレスを "[IPアドレス]:[ポート番号]" の形式で設定してください。
+# これまでの設定項目と同様に、文字列をダブルクォーテーションで囲って表記してください。
+# N12インターフェースで送信するAuthentication RequestのAPI rootとして使用されます。
+# （なお、現バージョンではTLSやOAuth2.0には非対応です）
+ausfAddress: "192.168.56.101:8000"
+# ----------------------------------------
+# overwriteLinkStringは、EAP-ID Tableで管理するRequest送信先URLのAPI root部分をausfAddressに上書きするかどうか(true/false)の設定です。
+# これは、Authentication Requestの送信先であるAPI rootとAUSFから返ってくるlink項目のAPI rootが異なるときに利用します。
+# Rad-5GC GWと5GCの間にリバースプロキシを挟む設備構成が、これに該当します。
+overwriteLinkString: true
+
