@@ -9,10 +9,10 @@
 # MaxBackupsは過去ログの保管数で、切り出されてからMaxAge（日数）経過すると削除されます。
 # LocalTimeはタイムスタンプにローカル時間を使うかどうか(true/false)の設定です。
 # Compressは過去ログをgzipで圧縮するかどうか(true/false)の設定です。
-filename: "mainsystem.log"
+filename: "mainsys.log"
 maxSize: 200
 maxBackups: 2
-maxAge: 365
+maxAge: 30
 localTime: true
 compress: false
 # ----------------------------------------
@@ -35,5 +35,5 @@ ausfAddress: "192.168.56.101:8000"
 # overwriteLinkStringは、EAP-ID Tableで管理するRequest送信先URLのAPI root部分をausfAddressに上書きするかどうか(true/false)の設定です。
 # これは、Authentication Requestの送信先であるAPI rootとAUSFから返ってくるlink項目のAPI rootが異なるときに利用します。
 # Rad-5GC GWと5GCの間にリバースプロキシを挟む設備構成が、これに該当します。
-overwriteLinkString: true
+overwriteLinkString: false
 
